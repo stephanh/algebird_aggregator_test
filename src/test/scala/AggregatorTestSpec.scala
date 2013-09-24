@@ -15,7 +15,7 @@ AggregatorTest works $test
       .arg("output", "fakeOutput")
       .source(TypedTsv[String]("fakeInput"), List("1", "2", "3"))
       .sink[Int](TypedTsv[Int]("fakeOutput"))(x => x.head === 1)
-      .run.finish
+      .runHadoop.finish
 
     ok
   }
