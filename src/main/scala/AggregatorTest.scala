@@ -15,8 +15,6 @@ object AggregatorTest {
 
 class AggregatorTest(args: Args) extends Job(args) {
   TypedTsv[String](args("input"))
-    .groupAll
     .aggregate(AggregatorTest.aggregator2)
-    .map(_._2)
     .write(TypedTsv(args("output")))
 }
